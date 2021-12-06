@@ -1,13 +1,17 @@
 #!/bin/sh
-echo "Enter the year"
-read y
-
-if [ $((y%400)) -eq 0 ]
+echo "enter year:"
+read year
+if [ `expr $year % 100` -eq 0 ]
 then
-  echo "It is a leap year"
-elif [ $((y%4)) -eq 0 ]
+        if [ `expr $year % 400` -eq 0 ]
+        then
+                echo "$year is a leap year"
+        else
+                echo "$year is not a leap year"
+        fi
+elif [ `expr $year % 4` -eq 0 ]
 then
-  echo "It is a leap year"
+        echo "$year is a leap year"
 else
-  echo "It is not a leap year"
+        echo "$year is not a leap year"
 fi
